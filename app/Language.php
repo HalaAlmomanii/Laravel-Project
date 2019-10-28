@@ -8,6 +8,6 @@ class Language extends Model
 {
     public function  guide ()
     {
-         $this->morphToMany('App\Guide_language');
+         $this->belongsToMany('App\Guide');
     }
 }

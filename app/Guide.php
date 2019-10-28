@@ -13,12 +13,12 @@ class Guide extends Model
 
     public function  language ()
     {
-         $this->morphToMany('App\Guide_language');
+         $this->belongsToMany('App\Guide');
     }
 
      public function  user ()
     {
-         $this->morphToMany('App\Guide_User');
+         $this->belongsToMany('App\User');
     }
 
 

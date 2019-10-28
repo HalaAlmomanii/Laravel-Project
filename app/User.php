@@ -11,7 +11,7 @@ class User extends Authenticatable
 
     public function  guide ()
     {
-         $this->morphToMany('App\Guide_User');
+         $this->belongsToMany('App\Guide');
     }
 
     use Notifiable;
