@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="825f33c1-c037-41c8-b1b1-532ceb86c27f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_27_180000_create_places_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_27_180000_create_places_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +148,7 @@
       <updated>1572199788747</updated>
       <workItem from="1572199789940" duration="6050000" />
       <workItem from="1572208463769" duration="1623000" />
-      <workItem from="1572243956158" duration="7222000" />
+      <workItem from="1572243956158" duration="7853000" />
     </task>
     <servers />
   </component>
