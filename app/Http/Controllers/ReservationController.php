@@ -121,11 +121,11 @@ $id=Auth::id();
         //
     }
 
-    public  function guidetime(Request $request)
+    public  function guidetime($id)
   {
 
 
-    $info= Reservation::where('guides_id', $request->guides_id)->with('user')->get();
+    $info= Reservation::where('guides_id', $id)->with('user')->get();
 //    dd($info);
     return view('guide.show',compact('info'));
 

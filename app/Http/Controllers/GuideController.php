@@ -142,7 +142,8 @@ $days = $too->diffInDays($fromm);
 
   public  function login()
   {
-      return view('guide.index');
+     $guide= Guide::all();
+      return view('guide.index',compact('guide'));
   }
 
 

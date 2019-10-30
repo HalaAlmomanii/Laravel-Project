@@ -40,5 +40,5 @@ Route::post('/Conformation/{guide_id}/{from}/{to}','ReservationController@create
 Route::get('/profile','ReservationController@profile');
 
 Route::get('/Guideinfo','GuideController@login');
-Route::post('/guide/time','ReservationController@guidetime');
+Route::get('/guide/{time}','ReservationController@guidetime');
 

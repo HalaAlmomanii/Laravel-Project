@@ -114,10 +114,12 @@
 <div class="container ">
     <div class="row pt-1 pb-1">
         <div class="col-lg-12">
-            <h4 class="text-center">{{$place[0]->name}}</h4>
-            <h6 class="text-center">{{$place[0]->description}}</h6>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrEl2aUmGPv2IzHJ5aDUiGm-o1IRk4T9gO2ZSJNGk2Okbd0Oij" class="d-block w-50 mx-auto" alt="...">
 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrEl2aUmGPv2IzHJ5aDUiGm-o1IRk4T9gO2ZSJNGk2Okbd0Oij" class="d-block w-50 mx-auto" alt="...">
+ <br>
+            <h4 class="text-center">{{$place[0]->name}}</h4>
+
+            <h6 class="text-center">{{$place[0]->description}}</h6>
         </div>
     </div>
 </div>
@@ -144,11 +146,13 @@
  <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <br>
                 <div class="card">
 
                     </div>
-                 Search for Guide
                 <br>
+                 Search for Guide
+                <br><br>
                     <form method="post" action="{{route('filter',$place[0]->id)}}">
                         @csrf
                         <label for="exampleInputPassword1">Language</label>
@@ -158,15 +162,16 @@
                             <option value="3">French</option>
                         </select>
 
+<div class="form-group">
+    <label for="exampleInputPassword1">from</label>
+    <input class="form-control mr-sm-2" type="date" name="from" aria-label="Search">
+  </div>
 
  <div class="form-group">
     <label for="exampleInputPassword1">to</label>
     <input class="form-control mr-sm-2" type="date" name="to" aria-label="Search">
   </div>
- <div class="form-group">
-    <label for="exampleInputPassword1">from</label>
-    <input class="form-control mr-sm-2" type="date" name="from" aria-label="Search">
-  </div>
+
 
 
 

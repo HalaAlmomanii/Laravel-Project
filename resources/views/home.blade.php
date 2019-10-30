@@ -11,7 +11,7 @@
                   <h5 class="card-title">{{ $place->name  }}</h5>
                   <p class="card-text">{{ $place->description  }}</p>
                   <a href="/place/{{$place->id}}" class="btn btn-primary">ask for a guide</a>
-                  <a href="{{ $place->location  }}" target="_blank" class="btn btn-secondary btn-sm float-right">see the location</a>
+                  <a href="{{ $place->location  }}" target="_blank" class="btn btn-success  float-right">see the location</a>
               </div>
           </div>
       @endforeach
