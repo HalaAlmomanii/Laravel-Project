@@ -11,7 +11,7 @@ class User extends Authenticatable
 
     public function  guide ()
     {
-         $this->belongsToMany('App\Guide');
+       return $this->belongsToMany('App\Guide');
     }
 
     use Notifiable;
@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','phone' , 'country', 'Gender',  'Photo'
     ];
 
     /**

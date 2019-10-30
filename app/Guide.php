@@ -8,18 +8,23 @@ class Guide extends Model
 {
    public function place()
    {
-        $this->belongsTo('App\Place');
+       return $this->belongsTo('App\Place');
     }
 
     public function  language ()
     {
-         $this->belongsToMany('App\Guide');
+     return    $this->belongsToMany('App\Language');
     }
 
      public function  user ()
     {
-         $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\User');
     }
+
+// public function  time ()
+//    {
+//        return $this->belongsTo('App\Reservation');
+//    }
 
 
 

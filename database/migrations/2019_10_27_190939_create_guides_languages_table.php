@@ -13,7 +13,7 @@ class CreateGuidesLanguagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('guides_languages', function (Blueprint $table) {
+        Schema::create('guide_language', function (Blueprint $table) {
             $table->bigIncrements('id');
              $table->unsignedBigInteger('language_id');
              $table->unsignedBigInteger('guide_id');

@@ -63,10 +63,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+//        if(request()->has('photo')){
+//            $photoup=request()->file('photo');
+////            $photoname=time().'.'.$photoup->getClientOriginalExtension();
+//            $photopath=public_path('/image/');
+//            $photoup->move($photopath);
+//
+//            return User::create([
+//                'name' => $data['name'],
+//                'email' => $data['email'],
+//                'password' => Hash::make($data['password']),
+//                'phone' => $data['phone'],
+//                'Gender' => $data['gender'],
+//                'country' => $data['country'],
+//                'photo' => $data['Photo']->store('uploads','public')
+//            ]);}
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'phone' => $data['phone'],
+                'Gender' => $data['Gender'],
+                'country' => $data['country'],
+  'Photo' => request()->file('Photo')->store('uploads','public')
+
         ]);
     }
 }

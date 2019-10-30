@@ -8,6 +8,6 @@ class Language extends Model
 {
     public function  guide ()
     {
-         $this->belongsToMany('App\Guide');
+       return   $this->belongsToMany('App\Guide');
     }
 }

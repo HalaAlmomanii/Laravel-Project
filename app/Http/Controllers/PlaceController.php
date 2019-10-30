@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Guide;
+use App\Place;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -11,11 +13,13 @@ class PlaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( $place_id)
     {
-        //
-    }
+        $place = Place::where('id', $place_id)->get();
 
+//        $availble
+        return view('place.index',compact('place'));
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -13,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+ $user=Auth::id();
+       $info= User::find($user);
+        return view('user.info',compact('info'));
     }
 
     /**
@@ -56,7 +59,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=Auth::id();
+      $info=User::find($user);
+        return view('user.edit',compact('info'));
     }
 
     /**
@@ -68,7 +73,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+$update= User::find($id);
+//$photoup=User::find($id);
+    $update->name=request('name');
+    $update->email=request('email');
+     $update->password=request('password');
+      $update->phone=request('phone');
+     $update->Gender=request('Gender');
+     $update->country=request('country');
+//      $update->photo=request()->file('Photo');request()->file->store('uploads', 'public'),
+        $update->Photo=request()->file('Photo')->store('uploads','public');
+
+     $update->save();
+        return redirect('/Userinfo');
     }
 
     /**

@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form enctype="multipart/form-data"  method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -60,6 +60,42 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
+
+
+
+
+
+
+
+
+                        <div class="form-group row">
+                            <label  class="col-md-4 col-form-label text-md-right">phone</label>
+
+                            <div class="col-md-6">
+                                <input  type="text" class="form-control" name="phone" >
+                            </div>
+                        </div>
+
+                             <div class="form-group row">
+                           <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('country') }}</label>
+                           <div class="col-md-6">
+                               <input id="country" type="text" class="form-control" name="country" required autocomplete="country">
+                           </div>
+                       </div>
+                          <div class="form-group row">
+    <label for="exampleFormControlSelect1" class="col-md-4 col-form-label text-md-right">Gender</label>
+    <select class="form-control col-form-label text-md-right col-md-4" style="margin-left:12px " name="Gender" id="exampleFormControlSelect1">
+      <option value="male">male</option>
+      <option value="female">female</option>
+
+    </select>
+
+  </div>
+                        <input type="file" name="Photo">
+
+
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
