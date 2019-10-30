@@ -32,9 +32,12 @@ Route::patch('/userinfo/{id}','UserController@update');
 
 Route::get('/place/{place_id}','PlaceController@index')->name('main');
 Route::post('/place/{place_id}','GuideController@index')->name('filter');
+
+
 Route::get('/Reservation/{guide_id}/{place}/{from}/{to}','GuideController@conformation');
 Route::post('/Conformation/{guide_id}/{from}/{to}','ReservationController@create');
-Route::get('/profile/{post_id}','ReservationController@profile');
+
+Route::get('/profile','ReservationController@profile');
 
 Route::get('/Guideinfo','GuideController@login');
 Route::post('/guide/time','ReservationController@guidetime');

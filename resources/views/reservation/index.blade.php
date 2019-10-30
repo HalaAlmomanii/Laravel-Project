@@ -1,35 +1,81 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">reservation</div>
-
-                <div class="card-body">
 
 
 
-{{$to}}
-                    {{$from}}
-                    {{$guides}}
-{{--                    {{$guides[0]->id}}--}}
-                    {{$days}}
-                    {{100*$days}}
 
-                </div>
+    <div class="card text card border-success mb-3" style="margin-left: 50px; margin-right: 50px">
+        <div class="card-header border-success ">
+            Reservation Information
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Date</h5>
+            <p class="card-text">From {{$from}} To {{$to}}</p>
+             <h5 class="card-title">Days</h5>
+            <p class="card-text"> {{$days}}</p>
+              <h5 class="card-title">Payment</h5>
+            <p class="card-text"> ${{100*$days}} </p>
 
-                    <input type="text" class="form-control">
 
+        </div>
+ <div class="card-footer text-center">
+     100 Dollar Per Day
+  </div>
+    </div>
+
+
+
+    <div class="card text card border-success mb-3" style="margin-left: 50px; margin-right: 50px">
+        <div class="card-header border-success ">
+            Guide & Place Information
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Name</h5>
+            <p class="card-text"> {{$guides[0]->name}}</p>
+             <h5 class="card-title">Nationality</h5>
+            <p class="card-text"> {{$guides[0]->National_id}}</p>
+              <h5 class="card-title">Description</h5>
+            <p class="card-text">{{$guides[0]->certification}} </p>
+               <h5 class="card-title">Place</h5>
+            <p class="card-text">{{$guides[0]->place['name']}} </p>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="card text card border-success mb-3" style="margin-left: 50px; margin-right: 50px">
+        <div class="card-header border-success ">
+            Payment Information
+        </div>
+ <div class="card-body">
+ <h5 class="card-title">Card Number</h5>
+     <input class="form-control"  type="number" name="" aria-label="Search">
+ </div>
+ <div class="card-body">
+ <h5 class="card-title">Name on Card </h5>
+     <input class="form-control"  type="strin" name="" aria-label="Search">
+ </div>
+
+<br>
 
                 <form method="post" action="/Conformation/{{$guides[0]->id}}/{{$from}}/{{$to}}">
 @csrf
-                    <button type="submit">Confirm </button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" style="margin-left: 10px" type="submit">Pay  <span class='amount'>${{100*$days}}</span> </button>
+
                 </form>
 
-            </div>
-        </div>
+<br>
     </div>
-</div>
+
+
+
+
+
+
 @endsection

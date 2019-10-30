@@ -36,26 +36,32 @@ class ReservationController extends Controller
     public function create($guide_id,$from,$to)
     {
 //        dd($from);
+$id=Auth::id();
         Reservation::create (
             [
                 'from'=>$from,
                 'to'=>$to,
                  'guides_id' =>$guide_id,
-                'user_id'=>1
+                'user_id'=>$id
             ]
         );
-        dd('ok');
+        return redirect("/profile");
     }
 
 
-    public function profile($place_id)
+    public function profile()
     {
 //        dd("profile");
-         $info= Reservation::where('user_id', 1)->with(['guide' => function ($query) use($place_id) {
-            $query->with('place')->whereHas('place', function (Builder $query) use ($place_id){
-                $query->where('place_id','=',$place_id);
-            });
-        }])->get();
+        $id=Auth::id();
+//         $info= Reservation::where('user_id', $id)->with(['guide' => function ($query) use($place_id) {
+//            $query->with('place')->whereHas('place', function (Builder $query) use ($place_id){
+//                $query->where('place_id','=',$place_id);
+//            });
+//        }])->get();
+
+          $info= Reservation::where('user_id', $id)->with(['guide' => function ($query) {
+            $query->with('place');}])->get();
+
 //dd($info);
   return view('user.index',compact('info'));
     }
