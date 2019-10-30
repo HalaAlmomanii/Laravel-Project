@@ -59,7 +59,7 @@
  </div>
  <div class="card-body">
  <h5 class="card-title">Name on Card </h5>
-     <input class="form-control"  type="strin" name="" aria-label="Search">
+     <input class="form-control"  type="string" name="" aria-label="Search">
  </div>
 
 <br>
