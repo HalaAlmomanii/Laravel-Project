@@ -3,7 +3,9 @@
 @section('content')
 
 
-<div class="container">
+<div class=" container " >
+<div class="border border-dark " style="height: 800px ;width:1000px">
+
 
 
 
@@ -11,6 +13,7 @@
         @csrf
         {{method_field('PATCH')}}
         <div class="form-group">
+            <br>
             <label>name</label>
             <input name="name" value={{$info->name}} type="text" class="form-control">
 
@@ -19,25 +22,27 @@
 {{--            <label for="exampleInputPassword1">Password</label>--}}
             <input hidden name="password" value={{$info->password}} type="password" class="form-control">
 {{--        </div>--}}
-
+        <br>
 
         <div class="form-group">
             <label for="exampleInputEmail1">email</label>
             <input name="email" value={{$info->email}} type="text" class="form-control">
 
         </div>
+        <br>
 
         <div class="form-group">
             <label for="exampleInputEmail1">phone</label>
             <input name="phone" value={{$info->phone}} type="text" class="form-control">
 
         </div>
-
+        <br>
         <div class="form-group">
             <label for="exampleInputEmail1">country</label>
             <input name="country" value={{$info->country}} type="text" class="form-control">
 
         </div>
+        <br>
 
         <div class="form-group">
  <label for="exampleInputEmail1">Gender</label>
@@ -54,6 +59,7 @@
 
         </select>
  </div>
+        <br>
 
         <div class="form-group">
             <label for="exampleInputEmail1">Profile picture</label>
@@ -66,6 +72,8 @@
     </form>
 
 
+
+</div>
 
 </div>
 
