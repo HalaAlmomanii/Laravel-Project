@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 use App\Place;
 
 
-
 class GuideController extends Controller
 {
     /**
@@ -24,9 +23,9 @@ class GuideController extends Controller
 
 
         $place = Place::where('id', $place_id)->get();
-        $guides = Place::where('id', $place_id)->with(['guide' => function ($query) use($request) {
-            $query->with('language')->whereHas('language', function (Builder $query) use ($request){
-                $query->where('language_id','=',$request['language_id']);
+        $guides = Place::where('id', $place_id)->with(['guide' => function ($query) use ($request) {
+            $query->with('language')->whereHas('language', function (Builder $query) use ($request) {
+                $query->where('language_id', '=', $request['language_id']);
             });
         }])->get();
 
@@ -34,7 +33,7 @@ class GuideController extends Controller
         $availble = [];
 
         foreach ($guides as $guide) {
-            $reservations = Reservation::where('guides_id', $guide->id)->where(['to'=>$request['to'],'from'=>$request['from']])->get();
+            $reservations = Reservation::where('guides_id', $guide->id)->where(['to' => $request['to'], 'from' => $request['from']])->get();
 
             if (count($reservations) !== 0) {
 
@@ -42,7 +41,7 @@ class GuideController extends Controller
                 $availble[] = $guide;
         }
 
-        return view('place.index',compact('availble','place','request'));
+        return view('place.index', compact('availble', 'place', 'request'));
 //         return $availble;
         //return  redirect()->route('main',$place_id)->with('test',$availble);return redirect()->back()->with('availble',$availble);
     }
@@ -122,29 +121,29 @@ class GuideController extends Controller
         //
     }
 
-     public function conformation($guide_id,$place_id,$from,$to)
+    public function conformation($guide_id, $place_id, $from, $to)
     {
 
 
-  $too = \Carbon\Carbon::createFromFormat('Y-m-d', $to);
-$fromm = \Carbon\Carbon::createFromFormat('Y-m-d', $from);
+        $too = \Carbon\Carbon::createFromFormat('Y-m-d', $to);
+        $fromm = \Carbon\Carbon::createFromFormat('Y-m-d', $from);
 
-$days = $too->diffInDays($fromm);
+        $days = $too->diffInDays($fromm);
 
 //         dd($days);
-        $guides=Guide::with('place')->where('id',$guide_id)->get();
+        $guides = Guide::with('place')->where('id', $guide_id)->get();
 //        dd($guides);
-        return view('reservation.index',compact('guides','from','to','days'));
+        return view('reservation.index', compact('guides', 'from', 'to', 'days'));
 //         $guides = Place::where('id', $place_id)->with('guide')->whereHas('id', function (Builder $query)use($guide_id) {
 //                $query->where('id','=',$guide_id);})->get();
 
     }
 
-  public  function login()
-  {
-     $guide= Guide::all();
-      return view('guide.index',compact('guide'));
-  }
+    public function login()
+    {
+        $guide = Guide::all();
+        return view('guide.index', compact('guide'));
+    }
 
 
 }
